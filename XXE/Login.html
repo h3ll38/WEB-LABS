@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attack XXE</title>
+</head>
+<body>
+    <h1>LOGIN IF YOU CAN!!!</h1>
+    <h2>Username:</h2>
+    <input id="username" type="text" name="username"><br>
+    <h2>Password:</h2>
+    <input id="password" type="text" name="password"><br>
+    <input type="submit" value="Done" name="Done" onclick="XMLfuntion()">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+        function XMLfuntion() {
+            let username = $('#username').val();
+            let password = $('#password').val();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                   alert(xhttp.responseText);
+                }
+            };
+            xhttp.open("POST", "exe.php", true);
+            xhttp.send('<?xml version="1.0" encoding="UTF-8"?><root><username>'+username+'</username><password>'+password+'</password></root>');
+        }
+    </script>
+</body>
+</html>
