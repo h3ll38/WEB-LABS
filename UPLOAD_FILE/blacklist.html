@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UPLOAD FILE</title>
+</head>
+<body>
+<form action="" method="POST" enctype="multipart/form-data">
+Choose file:
+<input type="file" name="fileupload" value="choose"><br>
+<input type="submit" name="send" value="Upload">	
+</form>
+</body>
+</html>
+<?php
+if (isset($_FILES['fileupload']))
+	{
+		$filename = $_FILES['fileupload']['name'];
+		$tmpname= $_FILES['fileupload']['tmp_name'];
+		$explode = explode(".", $filename);	
+		foreach ($explode as $file) 
+		{
+		if(preg_match('/php|php1|php2|php3|php4|php5/', $file))
+			{
+			echo "Don't hack!!!";
+			die();
+			}
+		if(!preg_match('/php|php1|php2|php3|php4|php5/', $file))
+			{
+			if (file_exists($filename))
+				{
+					echo "File exist!!!";
+				}
+			else
+				{
+				move_uploaded_file($tmpname,'upload/'.$filename);
+				echo "Upload success!!!";
+				}
+			}
+				
+		}
+	}
+else
+	die();
+?>
