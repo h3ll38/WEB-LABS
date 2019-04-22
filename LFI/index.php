@@ -91,11 +91,11 @@ if(isset($_GET['page']));
 	$page= str_replace("../", "", $page);
 	if ($page == "Name")
 	{
-		echo "<h3>Name: Nguyen Dang Khai</h3>";
+		echo "<h3>Name: Tsun4mi</h3>";
 	}
 	if ($page == "Age")
 	{
-		echo "<h3>Age: 20 years old</h3>";
+		echo "<h3>Age: 1.5 years old</h3>";
 	}
 	if ($page == "Hobby")
 	{
@@ -103,7 +103,7 @@ if(isset($_GET['page']));
 	}
 	if ($page == "Timeline")
 	{
-		echo "<h3>Timeline: Now,become super Nắc cơ !!!</h3>";
+		echo "<h3>Timeline: Now,try hard and try hard !!!</h3>";
 	}
 	if ($page == "Girlfriend")
 	{
