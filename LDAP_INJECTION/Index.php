@@ -23,7 +23,7 @@ ldap_set_option($ldap_conn, LDAP_OPT_PROTOCOL_VERSION,3);
 
 if(@ldap_bind($ldap_conn,$ldap_dn,$ldap_passwd)){
 	$filter = "(&(cn=".$_POST['user'].")(userPassword=".$_POST['pass']."))"; // focus
-	echo $filter;
+	echo $filter."<br/>";
 	$rel = ldap_search($ldap_conn, "dc=example,dc=com", $filter); 
 	$entries = ldap_get_entries($ldap_conn, $rel);
 	for ($i = 0 ; $i < $entries["count"]; $i++){
