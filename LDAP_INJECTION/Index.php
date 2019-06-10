@@ -27,7 +27,7 @@ if(@ldap_bind($ldap_conn,$ldap_dn,$ldap_passwd)){
 	$rel = ldap_search($ldap_conn, "dc=example,dc=com", $filter); 
 	$entries = ldap_get_entries($ldap_conn, $rel);
 	for ($i = 0 ; $i < $entries["count"]; $i++){
-			echo "UID is : ".@$entries[$i]["sn"][0]."<br/>";
+			echo "Surname is : ".@$entries[$i]["sn"][0]."<br/>";
 			echo "Mail is : ".@$entries[$i]["mail"][0]."<br/>";
 			echo "Password is : ".@$entries[$i]["userpassword"][0]."<br/>";
 			echo "===============================================<br/>";
